@@ -104,6 +104,11 @@ body {
     background-color: #4e426b;
 }
 
+#prueba {
+    color: white;
+    font-size: 14px;
+}
+
 .top .error {
     color: white;
     font-size: 14px;

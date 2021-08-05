@@ -7,6 +7,26 @@ const search = document.querySelector(".search");
 const btn = document.querySelector(".btn");
 btn.addEventListener("click", getInput);
 
+// Geolocalización
+var getIP = "http://ip-api.com/json/";
+$.getJSON(getIP).done(function(location) {
+console.log(location)
+})
+
+var getIP = "http://ip-api.com/json/";
+var openWeatherMap = "http://api.openweathermap.org/data/2.5/weather"
+$.getJSON(getIP).done(function(location) {
+$.getJSON(openWeatherMap, {
+regionName: location.regionName,
+city: location.city,
+units: "metric",
+APPID: "APIKEY"
+}).done(function(weather) {
+console.log(weather)
+})
+})
+
+
 function getInput (event) {
     event.preventDefault();
     if (event.type == "click") {

@@ -14,6 +14,27 @@
                 <input type="text" class="search" placeholder="Busca tu ciudad">
                 <button type="submit" class="btn">Enviar</button>
                 <p class="error"></p>
+
+                <div type="submit" class="btn">
+                    <button onclick="getLocation()">Tu localización</button>
+                    <p id="prueba"></p>
+            
+                    <script>
+                        var x = document.getElementById("prueba");
+                        function getLocation() {
+                        if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                        } else {
+                        x.innerHTML = "Este navegador no admite la geolocalización.";
+                        }
+                        }
+                        
+                        function showPosition(position) {
+                        x.innerHTML = "Región: " + position.coords.latitude +
+                        "<br>Ciudad: " + position.coords.longitude;
+                        }
+                        </script>
+                
             </form>
             <section>
                 <div class="container">
@@ -33,8 +54,7 @@
             </section>
         </div>
     </div>
-    
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
